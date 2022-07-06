@@ -3,23 +3,30 @@
 
 <TextPage>
     size_hint_y: None
-    height: dp(3000)
-    padding: [dp(20),]
-    spacing: dp(50)
+    height: dp(1500)
+    padding: [dp(60),]
+    spacing: dp(20)
+    opacity: 0
+
         
     TextInput:
         id: pages
         text: root.text
-        background_color: from_hex('#121212')
+        background_color: 0, 0, 0, 0
         foreground_color: from_hex('#ffffff')
-        font_size: dp(10)
+        font_size: dp(16)
+        canvas.after:
+            Color:
+                rgba: app.theme_cls.accent_light
+            Line:
+                rectangle:
+                    self.x, self.y, self.width, self.height
         
     MDGridLayout:
         id: grid
         rows: 8
-        size_hint: .15, .15
+        size_hint: .05, .15
         pos_hint: {'top': 1}
-        opacity: 0
         
         MDIconButton:
             icon: 'close'
@@ -64,10 +71,27 @@
         TextInput:
             id: counter
             multiline: False
-            size_hint_y: None
-            height: self.minimum_height + dp(30)
-            background_color: from_hex('#121212')
+            size_hint: None, None
+            width: dp(70)
+            height: self.minimum_height
+            background_color: 0, 0, 0, 0#from_hex('#121212')
             foreground_color: from_hex('#ffffff')
+            font_size: dp(16)
             halign: 'center'
+            input_filter: 'int'
+            padding_y: dp(10)
             on_text_validate:
                 root.go_on(self)
+                
+    MDSlider:
+        id: slider
+        orientation: 'vertical'
+        value: root.page_number
+        size_hint: None, None
+        width: dp(20)
+        height: dp(350)
+        pos_hint: {'top': 1}
+        on_value:
+            root.page_number = int(self.value)
+            counter.text = f'{root.page_number+1}'
+            

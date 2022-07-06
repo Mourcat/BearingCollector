@@ -6,6 +6,7 @@ sys.path.insert(0, os.path.join(root_dir, "libs", "applibs"))
 
 import json
 import traceback 
+
 import kivy
 kivy.require('2.0.0')
 from kivy.factory import Factory 

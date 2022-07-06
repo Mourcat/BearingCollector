@@ -36,9 +36,10 @@ class HomeScreen(MDScreen):
             text = self.pages[self.text_input.page_number].extract_text().strip()
             self.text_input.text = text.replace('\n', ' ')
         self.dismiss_popup()
-        self.file_opened = filename[0].split("/")[-1]
+        self.file_opened = os.path.basename(filename[0])
         self.ids.info_lbl.text = f'{self.file_opened} {self.text_input.page_number+1}/{len(self.pages)}'
-        self.text_input.ids.grid.opacity = .7
+        self.text_input.opacity = 1
+        self.text_input.ids.slider.max =len(self.pages)
 
     def show_load(self):
         content = LoadDialog(load=self.load, cancel=self.dismiss_popup)
