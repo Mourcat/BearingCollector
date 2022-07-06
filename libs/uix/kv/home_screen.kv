@@ -1,8 +1,38 @@
 #: import from_hex kivy.utils.get_color_from_hex
 #: import ContentNavigationDrawer libs.uix.baseclass.content_nav_drawer.ContentNavigationDrawer
+#: import TextPage libs.uix.baseclass.text_page.TextPage
 
+
+<LoadDialog>
+
+    MDBoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        
+        FileChooserListView:
+            id: filechooser
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: dp(50)
+            pos_hint: {'center_x': .8}
+            spacing: dp(18)
+            
+            MDRectangleFlatButton:
+                text: "Cancel"
+                on_release: root.cancel()
+
+            MDRaisedButton:
+                text: "Load"
+                on_release: root.load(filechooser.path, filechooser.selection)
+
+
+<SaveDialog>
+    
 
 <HomeScreen>
+    text_input: text_input
 
     MDBoxLayout:
         orientation: "vertical"
@@ -13,15 +43,33 @@
             right_action_items: [["dots-vertical", lambda x: x]]
             md_bg_color: from_hex('#121212')
             specific_text_color: app.theme_cls.primary_color
+        
+        MDLabel:
+            id: info_lbl
+            halign: 'center'
+            size_hint_y: None
+            height: self.texture_size[1]+dp(40)
+            font_style: 'Button'
+            font_size: dp(10)
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.accent_color
 
-        Widget:
+        ScrollView:
+        
+            TextPage:
+                id: text_input
+            
         
         MDFloatingActionButton:
             icon: 'plus'
             pos_hint: {'right': .9}
+            on_release: root.show_load()
             
-        Widget:
+        Widget :
             size_hint_y: .05
+        
+            
+     
 
     MDNavigationLayout:
 

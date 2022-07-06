@@ -31,7 +31,7 @@ if platform.system() == "Windows":
 KV_FOLDER = os.path.join(os.getcwd(), "libs", "uix", "kv")
 
 
-class BearingCollectorUi(MDApp, HotReloaderApp):  # NOQA: N801
+class BearingCollector(MDApp, HotReloaderApp): 
     DEBUG = 1  # To enable Hot Reload
 
     # *.kv files to watch
@@ -39,7 +39,7 @@ class BearingCollectorUi(MDApp, HotReloaderApp):  # NOQA: N801
 
     # Class to watch from *.py files
     # You need to register the *.py files in libs/uix/baseclass/*.py
-    CLASSES = {'Root': 'libs.uix.baseclass.root', 'HomeScreen': 'libs.uix.baseclass.home_screen', 'ContentNavigationDrawer': 'libs.uix.baseclass.content_nav_drawer'}  # NOQA: F821
+    CLASSES = {'Root': 'libs.uix.baseclass.root', 'HomeScreen': 'libs.uix.baseclass.home_screen', 'ContentNavigationDrawer': 'libs.uix.baseclass.content_nav_drawer'} 
 
     # Auto Reloader Path
     AUTORELOADER_PATHS = [
@@ -49,10 +49,10 @@ class BearingCollectorUi(MDApp, HotReloaderApp):  # NOQA: N801
     def __init__(self, **kwargs):
         super(BearingCollectorUi, self).__init__(**kwargs)
         Window.soft_input_mode = "below_target"
-        self.title = "BearingCollectorUI"
+        self.title = "BearingCollector"
 
         self.theme_cls.primary_palette = "Blue"
-        self.theme_cls.primary_hue = "200"
+        self.theme_cls.primary_hue = "300"
 
         self.theme_cls.accent_palette = "Red"
         self.theme_cls.accent_hue = "300"
@@ -64,4 +64,4 @@ class BearingCollectorUi(MDApp, HotReloaderApp):  # NOQA: N801
 
 
 if __name__ == "__main__":
-    BearingCollectorUi().run()
+    BearingCollector().run()

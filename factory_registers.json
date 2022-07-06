@@ -2,5 +2,12 @@
 
     "libs.uix.components.label": [
         "AutoScaleLabel"
+    ],
+    "libs.uix.baseclass.home_screen": [
+        "LoadDialog",
+        "SaveDialog"
+    ],
+    "libs.uix.baseclass.text_page": [
+        "TextPage"
     ]
 }

@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/storage/emulated/0/Git/BearingCollector/main.py", line 23, in <module>
+    BearingCollector().run()
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/app.py", line 950, in run
+    runTouchApp()
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/base.py", line 582, in runTouchApp
+    EventLoop.mainloop()
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/base.py", line 347, in mainloop
+    self.idle()
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/base.py", line 391, in idle
+    self.dispatch_input()
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/base.py", line 342, in dispatch_input
+    post_dispatch_input(*pop(0))
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/base.py", line 308, in post_dispatch_input
+    wid.dispatch('on_touch_up', me)
+  File "kivy/_event.pyx", line 709, in kivy._event.EventDispatcher.dispatch
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivymd/uix/button/button.py", line 940, in on_touch_up
+    return super().on_touch_up(touch)
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivymd/uix/behaviors/ripple_behavior.py", line 404, in on_touch_up
+    return super().on_touch_up(touch)
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/uix/behaviors/button.py", line 179, in on_touch_up
+    self.dispatch('on_release')
+  File "kivy/_event.pyx", line 705, in kivy._event.EventDispatcher.dispatch
+  File "kivy/_event.pyx", line 1248, in kivy._event.EventObservers.dispatch
+  File "kivy/_event.pyx", line 1132, in kivy._event.EventObservers._dispatch
+  File "/data/user/0/ru.iiec.pydroid3/files/aarch64-linux-android/lib/python3.9/site-packages/kivy/lang/builder.py", line 57, in custom_callback
+    exec(__kvlang__.co_value, idmap)
+  File "<string>", line 66, in <module>
+  File "/storage/emulated/0/Git/BearingCollector/libs/uix/baseclass/text_page.py", line 31, in next_page
+    self.text = MDApp.get_running_app().root.screens[0].pages[self.page_number].extract_text()
+IndexError: list index out of range

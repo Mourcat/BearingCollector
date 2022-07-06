@@ -1,0 +1,73 @@
+#: import from_hex kivy.utils.get_color_from_hex
+
+
+<TextPage>
+    size_hint_y: None
+    height: dp(3000)
+    padding: [dp(20),]
+    spacing: dp(50)
+        
+    TextInput:
+        id: pages
+        text: root.text
+        background_color: from_hex('#121212')
+        foreground_color: from_hex('#ffffff')
+        font_size: dp(10)
+        
+    MDGridLayout:
+        id: grid
+        rows: 8
+        size_hint: .15, .15
+        pos_hint: {'top': 1}
+        opacity: 0
+        
+        MDIconButton:
+            icon: 'close'
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.accent_color
+            on_release:
+                pages.text = ''
+
+        MDIconButton:
+            icon: 'plus'
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.accent_color
+            on_release:
+                pages.font_size += dp(1)
+
+        MDIconButton:
+            icon: 'minus'
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.accent_color
+            on_release:
+                pages.font_size -= dp(1)
+            
+        MDIconButton:
+            icon: 'arrow-left'
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.accent_color
+            on_release:
+                root.previous_page()
+
+        MDIconButton:
+            icon: 'arrow-right'
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.accent_color
+            on_release:
+                root.next_page()
+
+        MDIconButton:
+            icon: 'file'
+            theme_text_color: 'Custom'
+            text_color: app.theme_cls.accent_color
+            
+        TextInput:
+            id: counter
+            multiline: False
+            size_hint_y: None
+            height: self.minimum_height + dp(30)
+            background_color: from_hex('#121212')
+            foreground_color: from_hex('#ffffff')
+            halign: 'center'
+            on_text_validate:
+                root.go_on(self)
