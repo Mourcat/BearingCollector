@@ -24,8 +24,8 @@ class TextPage(MDBoxLayout):
         self.ids.counter.text = f'{self.page_number+1}'
     
     def next_page(self):
-        if self.page_number >= len(MDApp.get_running_app().root.screens[0].pages):
-            self.page_number = len(MDApp.get_running_app().root.screens[0].pages) -1
+        if self.page_number >= len(MDApp.get_running_app().root.screens[0].pages)-1:
+            self.page_number = len(MDApp.get_running_app().root.screens[0].pages)-1
         else:
             self.page_number += 1
         self.text = MDApp.get_running_app().root.screens[0].pages[self.page_number].extract_text()

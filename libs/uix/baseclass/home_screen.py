@@ -5,7 +5,6 @@ from kivy.uix.popup import Popup
 from kivymd.uix.screen import MDScreen
 from PyPDF2 import PdfReader
 import os
-from libs.uix.baseclass.text_page import TextPage
 
 
 class LoadDialog(FloatLayout):

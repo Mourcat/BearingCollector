@@ -14,6 +14,7 @@ class BearingCollector(MDApp):
         super(BearingCollector, self).__init__(**kwargs)
         Window.soft_input_mode = "below_target"
         self.title = "Bearing Collector"
+        self.theme_cls.material_style = 'M3'
         self.theme_cls.primary_palette = "Blue"
         self.theme_cls.primary_hue = "300"
         self.theme_cls.accent_palette = "Red"
