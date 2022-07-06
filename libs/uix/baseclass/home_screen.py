@@ -1,3 +1,4 @@
+from kivy.animation import Animation
 from kivy.uix.floatlayout import FloatLayout
 from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.popup import Popup
@@ -27,6 +28,9 @@ class HomeScreen(MDScreen):
         self._popup.dismiss()
         
     def load(self, path, filename):
+        self.pages = []
+        self.file_opened = ''
+        self.text_input.page_number = 0
         if filename[0].endswith('.txt'):
             with open(os.path.join(path, filename[0])) as stream:
                 self.text_input.text = stream.read()
@@ -38,8 +42,8 @@ class HomeScreen(MDScreen):
         self.dismiss_popup()
         self.file_opened = os.path.basename(filename[0])
         self.ids.info_lbl.text = f'{self.file_opened} {self.text_input.page_number+1}/{len(self.pages)}'
-        self.text_input.opacity = 1
-        self.text_input.ids.slider.max =len(self.pages)
+        Animation(opacity=1, d=3).start(self.text_input)
+        self.text_input.ids.slider.max = len(self.pages)
 
     def show_load(self):
         content = LoadDialog(load=self.load, cancel=self.dismiss_popup)

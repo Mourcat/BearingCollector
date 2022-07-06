@@ -8,13 +8,13 @@
     spacing: dp(20)
     opacity: 0
 
-        
     TextInput:
         id: pages
         text: root.text
         background_color: 0, 0, 0, 0
         foreground_color: from_hex('#ffffff')
         font_size: dp(16)
+        padding: [dp(60),]
         canvas.after:
             Color:
                 rgba: app.theme_cls.accent_light
@@ -94,4 +94,3 @@
         on_value:
             root.page_number = int(self.value)
             counter.text = f'{root.page_number+1}'
-            
