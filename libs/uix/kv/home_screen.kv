@@ -1,0 +1,30 @@
+#: import from_hex kivy.utils.get_color_from_hex
+#: import ContentNavigationDrawer libs.uix.baseclass.content_nav_drawer.ContentNavigationDrawer
+
+
+<HomeScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDTopAppBar:
+            title: app.title
+            left_action_items: [["menu", lambda x: nav_drawer.set_state('open')]]
+            right_action_items: [["dots-vertical", lambda x: x]]
+            md_bg_color: from_hex('#121212')
+            specific_text_color: app.theme_cls.primary_color
+
+        Widget:
+        
+        MDFloatingActionButton:
+            icon: 'plus'
+            pos_hint: {'right': .9}
+            
+        Widget:
+            size_hint_y: .05
+
+    MDNavigationLayout:
+
+        ContentNavigationDrawer:
+            id: nav_drawer
+    
